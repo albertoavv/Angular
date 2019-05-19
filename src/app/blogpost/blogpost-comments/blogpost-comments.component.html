@@ -1,0 +1,20 @@
+<form [formGroup]="blogpostComments" (ngSubmit)="onSubmit()">
+    <div class="form-group form-row">
+        <label class="col-md-12">Comments <span class="required">*</span></label>
+        <div class="col-md-12">
+            <textarea formControlName="comments" rows="5" class="form-control" placeholder="Comments" required></textarea>
+            <div *ngIf="comments.invalid && (comments.dirty || comments.touched)" class="error">
+                <div *ngIf="comments.errors">
+                    comments is required.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group form-row">
+        <label class="col-md-3"></label>
+        <div class="col-md-9">
+
+            <button type="submit" [disabled]="!blogpostComments.valid" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+</form>
